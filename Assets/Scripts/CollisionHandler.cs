@@ -2,25 +2,48 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class CollisionHandler : MonoBehaviour
 {
+    [SerializeField] float levelLoadDelay = 2f;
+    [SerializeField] AudioClip success; // 선언
+    [SerializeField] AudioClip crash; // 선언
 
+    AudioSource audioSource; // 선언
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>(); // 선언
+    }
     private void OnCollisionEnter(Collision other)
     {
+
         switch (other.gameObject.tag)
         {
             case "Friendly":
                 Debug.Log("This thing is friendly");
                 break;
             case "Finish":
-                LoadNextLevel();
-                break;
-            case "Fuel":
-                Debug.Log("You picked up fuel");
+                StartSuccessSequence();
                 break;
             default:
-                ReloadLevel();
+                StartCrashSequence();
                 break;
         }
 
+    }
+
+    void StartSuccessSequence()
+    {
+        audioSource.PlayOneShot(success); // 성공사운드 구현
+        //todo add particle effect upon succes
+        GetComponent<Movement>().enabled = false;
+        Invoke("LoadNextLevel", levelLoadDelay);
+    }
+
+    void StartCrashSequence()
+    {
+        audioSource.PlayOneShot(crash); // 실패 사운드 구현
+        //todo add particle effect upon crash
+        GetComponent<Movement>().enabled = false;
+        Invoke("ReloadLevel", levelLoadDelay);
     }
 
     void LoadNextLevel()

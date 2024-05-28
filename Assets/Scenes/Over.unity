@@ -737,6 +737,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocket
       objectReference: {fileID: 0}
+    - target: {fileID: 7023750937479186555, guid: 9b926a96c6adff643aa1932b92011dd9,
+        type: 3}
+      propertyPath: crash
+      value: 
+      objectReference: {fileID: 8300000, guid: f76cc34db2df9b8489a3a8966ff05777, type: 3}
+    - target: {fileID: 7023750937479186555, guid: 9b926a96c6adff643aa1932b92011dd9,
+        type: 3}
+      propertyPath: success
+      value: 
+      objectReference: {fileID: 8300000, guid: 4e6466b9da6734c45b81dbb999a53c59, type: 3}
     - target: {fileID: 7353963634763710734, guid: 9b926a96c6adff643aa1932b92011dd9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -786,6 +796,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7961720215314454782, guid: 9b926a96c6adff643aa1932b92011dd9,
+        type: 3}
+      propertyPath: mainEngine
+      value: 
+      objectReference: {fileID: 8300000, guid: 6f19659aa590b824bbc79c4f3d4ac283, type: 3}
+    - target: {fileID: 9139565856030497285, guid: 9b926a96c6adff643aa1932b92011dd9,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

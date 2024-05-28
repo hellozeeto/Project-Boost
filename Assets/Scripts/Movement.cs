@@ -6,6 +6,8 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] float mainThrust = 100f; 
     [SerializeField] float rotationThrust = 1f;
+    [SerializeField] AudioClip mainEngine;
+
     Rigidbody rb;
     AudioSource audioSource;
 
@@ -31,7 +33,7 @@ public class Movement : MonoBehaviour
             rb.AddRelativeForce(Vector3.up * mainThrust * Time.deltaTime); // 프레임률에 영향을 안받게
             if(!audioSource.isPlaying) // 소리가 겹치는것을 방지하기 위해 
             {
-                audioSource.Play();
+                audioSource.PlayOneShot(mainEngine); // 틀고 싶은 오디오 소스를 지정하기 위해, AudioSource.play는 매개변수를 받지 않음
             }
             
         }
