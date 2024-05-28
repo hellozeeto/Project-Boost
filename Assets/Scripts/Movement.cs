@@ -43,8 +43,10 @@ public class Movement : MonoBehaviour
         }
     }
 
-     void ApplyRotation(float rotationThisFrame)
+    void ApplyRotation(float rotationThisFrame)
     {
+        rb.freezeRotation = true; //수동 제어를 할 수 있도록 회전을 고정한다 
         transform.Rotate(Vector3.forward * rotationThisFrame * Time.deltaTime);
+        rb.freezeRotation = false;//무리시스템이 적용 되도록 회전 고정을 해제한다
     }
 }
