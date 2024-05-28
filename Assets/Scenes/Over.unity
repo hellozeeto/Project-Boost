@@ -209,13 +209,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.27, y: 6.01, z: -20.09}
+  m_LocalRotation: {x: 0.103784084, y: -0, z: -0, w: 0.9945999}
+  m_LocalPosition: {x: 2.04, y: 8.927, z: -20.09}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 11.914, y: 0, z: 0}
 --- !u!114 &330585547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -495,6 +495,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Landing Pad
       objectReference: {fileID: 0}
+    - target: {fileID: 4539264819265300181, guid: ed2731e5adbeb9b42a09e234e3ef1fab,
+        type: 3}
+      propertyPath: m_TagString
+      value: Finish
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -578,13 +583,18 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1182106458444361111, guid: 7fcbaedc36e35df4daec5c3300904e85,
         type: 3}
+      propertyPath: m_LocalScale.y
+      value: 6.0265703
+      objectReference: {fileID: 0}
+    - target: {fileID: 1182106458444361111, guid: 7fcbaedc36e35df4daec5c3300904e85,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.95
       objectReference: {fileID: 0}
     - target: {fileID: 1182106458444361111, guid: 7fcbaedc36e35df4daec5c3300904e85,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.91
+      value: 3.4
       objectReference: {fileID: 0}
     - target: {fileID: 1182106458444361111, guid: 7fcbaedc36e35df4daec5c3300904e85,
         type: 3}
@@ -704,6 +714,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Launch Pad
       objectReference: {fileID: 0}
+    - target: {fileID: 4539264819265300181, guid: ed2731e5adbeb9b42a09e234e3ef1fab,
+        type: 3}
+      propertyPath: m_TagString
+      value: Friendly
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -721,16 +736,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rocket
-      objectReference: {fileID: 0}
-    - target: {fileID: 2805126321815757378, guid: 9b926a96c6adff643aa1932b92011dd9,
-        type: 3}
-      propertyPath: m_Drag
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 2805126321815757378, guid: 9b926a96c6adff643aa1932b92011dd9,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 56
       objectReference: {fileID: 0}
     - target: {fileID: 7353963634763710734, guid: 9b926a96c6adff643aa1932b92011dd9,
         type: 3}
