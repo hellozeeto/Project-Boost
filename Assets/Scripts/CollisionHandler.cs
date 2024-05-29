@@ -3,17 +3,43 @@ using UnityEngine.SceneManagement;
 public class CollisionHandler : MonoBehaviour
 {
     [SerializeField] float levelLoadDelay = 2f;
-    [SerializeField] AudioClip success; // 선언
-    [SerializeField] AudioClip crash; // 선언
+    [SerializeField] AudioClip success; 
+    [SerializeField] AudioClip crash; 
 
-    AudioSource audioSource; // 선언
+    [SerializeField] ParticleSystem successParticles; 
+    [SerializeField] ParticleSystem crashParticles;
+
+    AudioSource audioSource;
+
+    bool isTransitioning = false;
+    bool collisionDisabled = false;
 
     void Start()
     {
         audioSource = GetComponent<AudioSource>(); // 선언
     }
+
+    void Update()
+    {
+        RespondToDebugKeys();
+    }
+
+    void RespondToDebugKeys()
+    {
+        if(Input.GetKeyDown(KeyCode.L))
+        {
+            LoadNextLevel();
+        }
+        else if (Input.GetKeyDown(KeyCode.C))
+        {
+            collisionDisabled = !collisionDisabled; // toggle collision
+        }
+    }
+
     private void OnCollisionEnter(Collision other)
     {
+
+        if(isTransitioning || collisionDisabled) { return; } // isTranstioning == true랑 같은 뜻 
 
         switch (other.gameObject.tag)
         {
@@ -30,18 +56,24 @@ public class CollisionHandler : MonoBehaviour
 
     }
 
+    
+
     void StartSuccessSequence()
     {
+        isTransitioning = true; // 착륙을 성공하면 true로 바꿔 사운드가 여러번 나게하지 않는다.
+        audioSource.Stop(); //  성공후에도 스페이스바 누르면 부스트소리 나는 문제 해결
         audioSource.PlayOneShot(success); // 성공사운드 구현
-        //todo add particle effect upon succes
+        successParticles.Play();
         GetComponent<Movement>().enabled = false;
         Invoke("LoadNextLevel", levelLoadDelay);
     }
 
     void StartCrashSequence()
     {
+        isTransitioning = true; // 실패해도 ture로 바꿔 사운드가 여러번 나게하지 않는다.
+        audioSource.Stop();
         audioSource.PlayOneShot(crash); // 실패 사운드 구현
-        //todo add particle effect upon crash
+        crashParticles.Play();
         GetComponent<Movement>().enabled = false;
         Invoke("ReloadLevel", levelLoadDelay);
     }
